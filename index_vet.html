@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paws & Claws Veterinary | Compassionate Care for Your Best Friends</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #2d2b2a;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background: linear-gradient(135deg, #1e4a6b 0%, #0f3b57 100%);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff, #ffd89a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.95);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #ffd89a;
+    }
+
+    /* Page Container */
+    .page {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .page.active-page {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(30, 74, 107, 0.8), rgba(15, 59, 87, 0.9)), url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f4a261;
+      color: #1e4a6b;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: #e76f51;
+      transform: translateY(-3px);
+    }
+
+    /* Cards Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1280px;
+      margin: 2rem auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: 0.3s;
+      text-align: center;
+      border: 1px solid #e9ecef;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: #f4a261;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+      color: #1e4a6b;
+    }
+
+    .card p {
+      padding: 0 1.2rem 1.5rem;
+      color: #5a5a5a;
+    }
+
+    /* Section Wrapper */
+    .section {
+      padding: 4rem 2rem;
+    }
+
+    .section-light {
+      background: #ffffff;
+    }
+
+    .section-alt {
+      background: #fef9f0;
+    }
+
+    .section-dark {
+      background: #1e4a6b;
+      color: white;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      color: #1e4a6b;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: #f4a261;
+      margin: 0.8rem auto 0;
+    }
+
+    /* Contact Info Cards */
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-card-home {
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      flex: 1;
+      min-width: 200px;
+      transition: 0.3s;
+      border: 1px solid #e9ecef;
+    }
+
+    .contact-card-home:hover {
+      transform: translateY(-5px);
+      border-color: #f4a261;
+    }
+
+    .contact-card-home i {
+      font-size: 2.2rem;
+      color: #f4a261;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-card-home h4 {
+      font-size: 1.2rem;
+      color: #1e4a6b;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-card-home p {
+      color: #5a5a5a;
+    }
+
+    /* About Two Columns */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+    }
+
+    /* Team Grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: 24px;
+      text-align: center;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    .team-card img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 4px solid #f4a261;
+    }
+
+    /* Contact Form */
+    .form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 28px;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f3b57;
+      color: #e2e8f0;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">
+    <h1>🐾 Paws & Claws Veterinary</h1>
+  </div>
+  <div class="nav-links">
+    <a href="#" class="nav-link active" data-page="home">Home</a>
+    <a href="#" class="nav-link" data-page="services">Services</a>
+    <a href="#" class="nav-link" data-page="about">About Us</a>
+    <a href="#" class="nav-link" data-page="team">Our Team</a>
+    <a href="#" class="nav-link" data-page="contact">Contact</a>
+  </div>
+</div>
+
+<!-- ==================== PAGE: HOME ==================== -->
+<div id="home-page" class="page active-page">
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Loving Care for Your Best Friend</h2>
+      <p>Comprehensive veterinary services, modern facilities, and a team that treats every pet like family.</p>
+      <a href="#" class="btn" data-page="contact">Book an Appointment</a>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO ON HOME PAGE -->
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Contact & Location</h2>
+      <div class="contact-cards">
+        <div class="contact-card-home">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>Visit Us</h4>
+          <p>123 Pet Lane, Austin, TX 78701</p>
+        </div>
+        <div class="contact-card-home">
+          <i class="fas fa-phone-alt"></i>
+          <h4>Call Us</h4>
+          <p>(555) 789-1234</p>
+        </div>
+        <div class="contact-card-home">
+          <i class="fas fa-envelope"></i>
+          <h4>Email</h4>
+          <p>hello@pawsandclaws.com</p>
+        </div>
+        <div class="contact-card-home">
+          <i class="fas fa-clock"></i>
+          <h4>Hours</h4>
+          <p>Mon-Fri: 8am-7pm<br>Sat: 9am-4pm</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Why Pet Parents Choose Us</h2>
+      <div class="grid-3">
+        <div class="card">
+          <i class="fas fa-stethoscope card-icon"></i>
+          <h3>Preventive Care</h3>
+          <p>Vaccinations, wellness exams, and parasite control to keep your pet healthy for years.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-syringe card-icon"></i>
+          <h3>Vaccination Plans</h3>
+          <p>Customized vaccine schedules for puppies, kittens, and senior pets.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-heartbeat card-icon"></i>
+          <h3>24/7 Emergency</h3>
+          <p>On-call veterinarians for urgent care when your pet needs it most.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Happy Tails, Happy Hearts</h2>
+      <div class="grid-3">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Happy golden retriever">
+          <h3>Max</h3>
+          <p>"Thanks to Paws & Claws, Max recovered from his surgery quickly. Amazing staff!"</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Happy orange cat">
+          <h3>Luna</h3>
+          <p>"The doctors are so gentle and knowledgeable. Luna loves coming here!"</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1545249390-6bdfa286032f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Cute rabbit">
+          <h3>Coco</h3>
+          <p>"Expert care for exotic pets too. Highly recommended!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: SERVICES ==================== -->
+<div id="services-page" class="page">
+  <section class="hero" style="min-height: 40vh; background: linear-gradient(rgba(30,74,107,0.85), rgba(15,59,87,0.9)), url('https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+    <div class="hero-content">
+      <h2>Our Veterinary Services</h2>
+      <p>Complete medical, surgical, and wellness care under one roof.</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="grid-3">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Veterinarian examining a dog">
+          <h3>Wellness Exams</h3>
+          <p>Annual check-ups, dental exams, nutritional counseling, and weight management.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Vaccination for puppy">
+          <h3>Vaccinations</h3>
+          <p>Core and lifestyle vaccines to protect against rabies, distemper, and more.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Veterinary surgery">
+          <h3>Surgical Procedures</h3>
+          <p>Spay/neuter, soft tissue, orthopedic surgery with advanced anesthesia monitoring.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Dog dental cleaning">
+          <h3>Dental Care</h3>
+          <p>Teeth cleaning, extractions, and periodontal treatment for fresh breath and health.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Veterinary ultrasound diagnostic">
+          <h3>Diagnostic Imaging</h3>
+          <p>Digital X-rays, ultrasound, and in-house lab for rapid diagnosis.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img" alt="Emergency vet care">
+          <h3>Emergency & Urgent Care</h3>
+          <p>Immediate attention for accidents, poisoning, and critical conditions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: ABOUT US ==================== -->
+<div id="about-page" class="page">
+  <section class="hero" style="min-height: 40vh; background: linear-gradient(rgba(30,74,107,0.85), rgba(15,59,87,0.9)), url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+    <div class="hero-content">
+      <h2>About Paws & Claws</h2>
+      <p>Compassion, excellence, and innovation since 2012.</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37c1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern veterinary clinic reception area">
+        </div>
+        <div>
+          <h3 style="color:#1e4a6b; font-size:1.8rem;">A Hospital Built on Love</h3>
+          <p style="margin-top:1rem;">Founded by Dr. Sarah Mitchell, Paws & Claws Veterinary has grown into a full-service animal hospital serving thousands of happy pets. Our mission is to provide accessible, high-quality medicine with a gentle touch.</p>
+          <p>We believe in preventive care, client education, and building lasting relationships with both pets and their families.</p>
+          <div style="display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;">
+            <div><strong>🏆 AAHA Accredited</strong></div>
+            <div><strong>⭐ 4.9 Stars Rating</strong></div>
+            <div><strong>🏥 24/7 Emergency</strong></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 3rem; text-align: center;">
+        <h3 style="color:#1e4a6b;">Our Facility Features</h3>
+        <div class="grid-3" style="margin-top:1rem;">
+          <div><i class="fas fa-x-ray"></i> Digital Radiology</div>
+          <div><i class="fas fa-microscope"></i> In-house Lab</div>
+          <div><i class="fas fa-syringe"></i> Laser Therapy</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: TEAM ==================== -->
+<div id="team-page" class="page">
+  <section class="hero" style="min-height: 40vh; background: linear-gradient(rgba(30,74,107,0.85), rgba(15,59,87,0.9)), url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+    <div class="hero-content">
+      <h2>Meet Our Veterinarians</h2>
+      <p>Dedicated professionals who treat your pets like family.</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Sarah Mitchell">
+          <h3>Dr. Sarah Mitchell</h3>
+          <p style="color:#f4a261; font-weight:600;">Chief Veterinarian</p>
+          <p>15 years of experience in small animal medicine. Special interest in dermatology.</p>
+        </div>
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. James Carter">
+          <h3>Dr. James Carter</h3>
+          <p style="color:#f4a261; font-weight:600;">Surgical Director</p>
+          <p>Expert in orthopedic and soft tissue surgery. Certified in advanced pain management.</p>
+        </div>
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Emily Wong">
+          <h3>Dr. Emily Wong</h3>
+          <p style="color:#f4a261; font-weight:600;">Internal Medicine</p>
+          <p>Specialized in cardiology and endocrinology for dogs and cats.</p>
+        </div>
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dr. Lisa Patel">
+          <h3>Dr. Lisa Patel</h3>
+          <p style="color:#f4a261; font-weight:600;">Preventive Care</p>
+          <p>Passionate about nutrition, vaccinations, and senior pet wellness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: CONTACT & APPOINTMENT ==================== -->
+<div id="contact-page" class="page">
+  <section class="hero" style="min-height: 40vh; background: linear-gradient(rgba(30,74,107,0.85), rgba(15,59,87,0.9)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+    <div class="hero-content">
+      <h2>Book an Appointment</h2>
+      <p>We're here to help. Schedule a visit or reach out with any questions.</p>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="form-container">
+        <form id="appointmentForm">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group"><input type="text" placeholder="Pet's Name" required></div>
+            <div class="form-group"><input type="text" placeholder="Owner's Full Name" required></div>
+            <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+            <div class="form-group"><input type="tel" placeholder="Phone Number" required></div>
+            <div class="form-group"><select required><option>Select Service</option><option>Wellness Exam</option><option>Vaccination</option><option>Surgery Consultation</option><option>Dental Cleaning</option><option>Emergency</option></select></div>
+            <div class="form-group"><input type="date" required></div>
+          </div>
+          <div class="form-group"><textarea rows="3" placeholder="Tell us about your pet's symptoms or needs..."></textarea></div>
+          <button type="submit" class="btn" style="width:100%;">Request Appointment</button>
+        </form>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2.5rem; text-align: center;">
+        <div><i class="fas fa-map-marker-alt" style="color:#f4a261; font-size:1.8rem;"></i><h4>Visit Us</h4><p>123 Pet Lane, Austin, TX 78701</p></div>
+        <div><i class="fas fa-phone-alt" style="color:#f4a261; font-size:1.8rem;"></i><h4>Call Us</h4><p>(555) 789-1234</p></div>
+        <div><i class="fas fa-clock" style="color:#f4a261; font-size:1.8rem;"></i><h4>Hours</h4><p>Mon-Fri: 8am-7pm | Sat: 9am-4pm</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>🐶 Paws & Claws Veterinary — Compassionate Care for Every Paw 🐱</p>
+  <p style="margin-top:0.5rem;">© 2026 All Rights Reserved | Follow us: <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i> <i class="fab fa-twitter"></i></p>
+</footer>
+
+<script>
+  // Multi-page navigation logic
+  const navLinks = document.querySelectorAll('.nav-link');
+  const pages = document.querySelectorAll('.page');
+
+  function showPage(pageId) {
+    pages.forEach(page => {
+      page.classList.remove('active-page');
+    });
+    const activePage = document.getElementById(`${pageId}-page`);
+    if (activePage) activePage.classList.add('active-page');
+
+    // Update active class on nav
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-page') === pageId) {
+        link.classList.add('active');
+      }
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pageId = link.getAttribute('data-page');
+      showPage(pageId);
+    });
+  });
+
+  // Also handle buttons that navigate to contact
+  document.querySelectorAll('[data-page="contact"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showPage('contact');
+    });
+  });
+
+  // Form submission demo alert
+  const form = document.getElementById('appointmentForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("✨ Thank you! Your appointment request has been sent. We'll call you within 2 hours to confirm.");
+      form.reset();
+    });
+  }
+</script>
+</body>
+</html>
