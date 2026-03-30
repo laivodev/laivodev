@@ -17,7 +17,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background: #ffffff;
-            color: #111111;
+            color: #1a1a1a;
             line-height: 1.5;
         }
 
@@ -46,12 +46,12 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            color: #2563eb;
         }
 
         .logo span {
             font-weight: 400;
-            color: #666;
+            color: #6b7280;
         }
 
         nav {
@@ -61,14 +61,14 @@
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: #4b5563;
             font-weight: 500;
             font-size: 15px;
             transition: color 0.2s;
         }
 
         nav a:hover {
-            color: #000;
+            color: #2563eb;
         }
 
         /* Badges */
@@ -89,17 +89,21 @@
         }
 
         .badge-live {
-            background: #e6f7e6;
-            color: #2e7d32;
+            background: #dcfce7;
+            color: #166534;
         }
 
         .badge-available {
-            background: #e3f2fd;
-            color: #1565c0;
+            background: #dbeafe;
+            color: #1e40af;
         }
 
         /* Hero */
         .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
             padding: 60px 0 40px;
         }
 
@@ -110,16 +114,19 @@
             margin-bottom: 16px;
         }
 
+        .hero h1 span {
+            color: #2563eb;
+        }
+
         .hero p {
             font-size: 18px;
-            color: #555;
-            max-width: 600px;
+            color: #6b7280;
             margin-bottom: 28px;
         }
 
         .cta-button {
             display: inline-block;
-            background: #111;
+            background: #2563eb;
             color: white;
             padding: 12px 28px;
             border-radius: 30px;
@@ -130,13 +137,20 @@
         }
 
         .cta-button:hover {
-            background: #333;
+            background: #1d4ed8;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         /* Sections */
         section {
             padding: 60px 0;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #f0f0f0;
         }
 
         .section-title {
@@ -146,12 +160,28 @@
             letter-spacing: -0.5px;
         }
 
+        .section-title span {
+            color: #2563eb;
+        }
+
         /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
         .about-text {
-            max-width: 700px;
             font-size: 17px;
-            color: #444;
+            color: #4b5563;
             line-height: 1.6;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         /* Services */
@@ -159,6 +189,17 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .service-card i {
+            font-size: 36px;
+            color: #2563eb;
+            margin-bottom: 16px;
         }
 
         .service-card h3 {
@@ -169,7 +210,7 @@
 
         .service-card p {
             font-size: 14px;
-            color: #666;
+            color: #6b7280;
             line-height: 1.5;
         }
 
@@ -182,27 +223,30 @@
 
         .project-card {
             border: 1px solid #eaeaea;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             transition: box-shadow 0.2s;
             background: #fff;
         }
 
         .project-card:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
 
         .project-image {
-            background: #f5f5f5;
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 200px;
+            overflow: hidden;
         }
 
-        .project-image i {
-            font-size: 48px;
-            color: #333;
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
         }
 
         .project-info {
@@ -217,7 +261,7 @@
 
         .project-info p {
             font-size: 13px;
-            color: #666;
+            color: #6b7280;
             margin-bottom: 12px;
             line-height: 1.4;
         }
@@ -230,12 +274,12 @@
         }
 
         .tech-tag {
-            background: #f0f0f0;
+            background: #eef2ff;
             padding: 3px 10px;
             border-radius: 12px;
             font-size: 11px;
             font-weight: 500;
-            color: #444;
+            color: #2563eb;
         }
 
         .project-links {
@@ -253,11 +297,11 @@
         }
 
         .btn-preview {
-            color: #111;
+            color: #2563eb;
         }
 
         .btn-code {
-            color: #888;
+            color: #9ca3af;
         }
 
         .btn-preview:hover, .btn-code:hover {
@@ -269,28 +313,38 @@
             display: flex;
             flex-wrap: wrap;
             gap: 24px;
+            justify-content: center;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            background: #f9fafb;
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid #eaeaea;
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            border-color: #2563eb;
+            background: #eef2ff;
         }
 
         .contact-item i {
-            font-size: 18px;
-            color: #333;
-            width: 24px;
+            font-size: 20px;
+            color: #2563eb;
         }
 
         .contact-item a {
             text-decoration: none;
-            color: #111;
+            color: #1f2937;
             font-weight: 500;
         }
 
         .contact-item a:hover {
-            text-decoration: underline;
+            color: #2563eb;
         }
 
         /* Tech Stack */
@@ -298,35 +352,42 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+            justify-content: center;
         }
 
         .tech-item {
-            background: #f5f5f5;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
+            background: #f3f4f6;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
             font-weight: 500;
-            color: #333;
+            color: #374151;
+            transition: all 0.2s;
+        }
+
+        .tech-item:hover {
+            background: #2563eb;
+            color: white;
         }
 
         /* Footer */
         footer {
             text-align: center;
             padding: 40px 0;
-            border-top: 1px solid #eee;
-            color: #888;
+            border-top: 1px solid #f0f0f0;
+            color: #9ca3af;
             font-size: 13px;
         }
 
         /* Responsive */
         @media (max-width: 900px) {
-            .services-grid, .projects-grid {
+            .services-grid, .projects-grid, .hero, .about-content {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 600px) {
-            .services-grid, .projects-grid {
+            .services-grid, .projects-grid, .hero, .about-content {
                 grid-template-columns: 1fr;
             }
             .header-content {
@@ -339,9 +400,11 @@
             .section-title {
                 font-size: 24px;
             }
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
+            .hero {
+                text-align: center;
+            }
+            .about-content {
+                text-align: center;
             }
         }
     </style>
@@ -369,26 +432,46 @@
 
         <!-- Hero -->
         <section id="home" class="hero">
-            <h1>Laivo<br>Web Developer</h1>
-            <p>Building clean, functional websites for small businesses and entrepreneurs.</p>
-            <a href="#contact" class="cta-button">Work with me →</a>
+            <div>
+                <h1>Hi, I'm <span>Laivo</span><br>Web Developer</h1>
+                <p>Building clean, functional websites for small businesses and entrepreneurs around the world.</p>
+                <a href="#contact" class="cta-button">Start a project →</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=500&fit=crop" alt="Coding workspace">
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <h2 class="section-title">About <span>me</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a freelance web developer with a passion for creating websites that are both beautiful and functional. I work closely with clients to understand their needs and deliver solutions that help their businesses grow online.</p>
+                    <br>
+                    <p>Every project starts with a conversation. I believe in clear communication, honest timelines, and quality work that stands the test of time.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=400&fit=crop" alt="Working remotely">
+                </div>
+            </div>
         </section>
 
         <!-- Work / Projects -->
         <section id="work">
-            <h2 class="section-title">Selected work</h2>
+            <h2 class="section-title">Selected <span>work</span></h2>
             <div class="projects-grid">
                 <!-- Dental -->
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-tooth"></i>
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=400&fit=crop" alt="Dental clinic website">
                     </div>
                     <div class="project-info">
                         <h3>BrightSmile Dental</h3>
-                        <p>Dental clinic website with service showcase and appointment form.</p>
+                        <p>Modern dental clinic website with service showcase and appointment system.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">PHP</span>
                         </div>
                         <div class="project-links">
@@ -401,14 +484,14 @@
                 <!-- Restaurant -->
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-utensils"></i>
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="Restaurant website">
                     </div>
                     <div class="project-info">
                         <h3>Flavors Restaurant</h3>
-                        <p>Restaurant website featuring menu and reservation system.</p>
+                        <p>Elegant restaurant website featuring menu showcase and reservation system.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">PHP</span>
                         </div>
                         <div class="project-links">
@@ -421,14 +504,14 @@
                 <!-- Roofing -->
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-home"></i>
+                        <img src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2b8?w=600&h=400&fit=crop" alt="Roofing services website">
                     </div>
                     <div class="project-info">
                         <h3>Roofing Masters</h3>
-                        <p>Professional roofing services with quote request form.</p>
+                        <p>Professional roofing services website with quote request form.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">HTML/CSS</span>
-                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">PHP</span>
                         </div>
                         <div class="project-links">
@@ -442,30 +525,34 @@
 
         <!-- Services -->
         <section id="services">
-            <h2 class="section-title">Services</h2>
+            <h2 class="section-title">What I <span>do</span></h2>
             <div class="services-grid">
                 <div class="service-card">
+                    <i class="fas fa-code"></i>
                     <h3>Website creation</h3>
-                    <p>Custom websites built from scratch, tailored to your business.</p>
+                    <p>Custom websites built from scratch, tailored to your business needs.</p>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-rocket"></i>
                     <h3>Landing pages</h3>
-                    <p>High-converting pages for campaigns and products.</p>
+                    <p>High-converting pages designed to turn visitors into customers.</p>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
                     <h3>Responsive design</h3>
-                    <p>Perfect experience on desktop, tablet, and mobile.</p>
+                    <p>Perfect experience on desktop, tablet, and all mobile devices.</p>
                 </div>
                 <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
                     <h3>Maintenance</h3>
-                    <p>Ongoing support, updates, and security.</p>
+                    <p>Ongoing support, updates, and security for your peace of mind.</p>
                 </div>
             </div>
         </section>
 
         <!-- Contact -->
         <section id="contact">
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title">Get in <span>touch</span></h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -477,16 +564,17 @@
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-briefcase"></i>
-                    <a href="https://www.workana.com/freelancer/98913de5974328d0cce9abeb0af02b85" target="_blank">Workana</a>
+                    <a href="https://www.workana.com/freelancer/98913de5974328d0cce9abeb0af02b85" target="_blank">Workana Profile</a>
                 </div>
             </div>
         </section>
 
         <!-- Tech Stack -->
         <section>
-            <h2 class="section-title">Tech stack</h2>
+            <h2 class="section-title">Tech <span>stack</span></h2>
             <div class="tech-stack">
-                <span class="tech-item">HTML/CSS</span>
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS3</span>
                 <span class="tech-item">JavaScript</span>
                 <span class="tech-item">PHP</span>
                 <span class="tech-item">React</span>
@@ -494,14 +582,14 @@
                 <span class="tech-item">MySQL</span>
                 <span class="tech-item">Python</span>
                 <span class="tech-item">Tailwind</span>
-                <span class="tech-item">Git</span>
+                <span class="tech-item">Git & GitHub</span>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2026 LaivoDev — Available for freelance work</p>
+            <p>© 2026 LaivoDev — Available for freelance work. Let's build something great together.</p>
         </div>
     </footer>
 </body>
